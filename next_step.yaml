@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-02",
+  "status": "architecture_owner_bootstrap",
+  "objective": "Keep reusable ray/geometry/traversal meaning separate from CUDA provider mechanisms and renderer/product policy.",
+  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-ray-semantic-owner.md"],
+  "current_focus": {"issue": 3, "status": "not_activated", "next_action": "After bootstrap integration, select a bounded ray/geometry/traversal profile and classify OptiX/compiler lower-layer gaps; implementation still requires an accepted spec."},
+  "parallel_governance": {"issue": 2, "status": "blocked_on_control_plane_mutation"},
+  "do_not": ["implement raw OptiX/native bindings here", "absorb renderer/material/product semantics", "make OptiX availability the public contract", "claim RT support from repository creation"]
+}
