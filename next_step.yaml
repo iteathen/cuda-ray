@@ -1,10 +1,20 @@
 {
-  "schema_version": 1,
-  "updated": "2026-09-02",
-  "status": "architecture_owner_bootstrap",
+  "schema_version": 2,
+  "updated": "2026-09-05",
+  "status": "architecture_owner_integrated_consumer_activation_gated",
   "objective": "Keep reusable ray/geometry/traversal meaning separate from CUDA provider mechanisms and renderer/product policy.",
   "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-ray-semantic-owner.md"],
-  "current_focus": {"issue": 3, "status": "not_activated", "next_action": "After bootstrap integration, select a bounded ray/geometry/traversal profile and classify OptiX/compiler lower-layer gaps; implementation still requires an accepted spec."},
-  "parallel_governance": {"issue": 2, "status": "blocked_on_control_plane_mutation"},
-  "do_not": ["implement raw OptiX/native bindings here", "absorb renderer/material/product semantics", "make OptiX availability the public contract", "claim RT support from repository creation"]
+  "completed": {"issue": 1, "state": "ownership_bootstrap_integrated"},
+  "current_focus": {
+    "issue": 3,
+    "status": "consumer_selection_required",
+    "next_action": "Select one bounded consumer-backed ray/geometry/traversal profile now that ownership is integrated. Classify exact OptiX/compiler lower-layer gaps and accept a provider-neutral semantic specification before production implementation."
+  },
+  "parallel_governance": {"issue": 2, "status": "main_unprotected_control_plane_alignment_open"},
+  "do_not": [
+    "implement raw OptiX/native bindings here",
+    "absorb renderer/material/product semantics",
+    "make OptiX availability the public contract",
+    "claim RT support from repository creation or completed governance"
+  ]
 }
