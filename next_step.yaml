@@ -1,20 +1,29 @@
 {
   "schema_version": 2,
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep reusable ray/geometry/traversal meaning separate from CUDA provider mechanisms and renderer/product policy.",
-  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-ray-semantic-owner.md"],
-  "completed": {"issue": 1, "state": "ownership_bootstrap_integrated"},
+  "objective": "Keep reusable ray/geometry/traversal meaning separate from native CUDA/provider mechanisms, cross-domain memory policy and renderer/product policy.",
+  "authority": [
+    "AGENTS.md",
+    "docs/PROJECT_CHARTER.md",
+    "docs/specs/SPEC-0001-native-boundary-and-js-only-implementation.md",
+    "docs/decisions/ADR-0001-independent-ray-semantic-owner.md"
+  ],
+  "completed": {
+    "ownership_bootstrap_issue": 1,
+    "repository_governance_issue": 2,
+    "repository_governance_state": "protected_main_aligned"
+  },
   "current_focus": {
     "issue": 3,
     "status": "consumer_selection_required",
-    "next_action": "Select one bounded consumer-backed ray/geometry/traversal profile now that ownership is integrated. Classify exact OptiX/compiler lower-layer gaps and accept a provider-neutral semantic specification before production implementation."
+    "next_action": "Select one bounded consumer-backed ray/geometry/traversal profile, classify exact lower native/provider gaps, and accept a provider-neutral semantic specification before production implementation."
   },
-  "parallel_governance": {"issue": 2, "status": "main_unprotected_control_plane_alignment_open"},
   "do_not": [
     "implement raw OptiX/native bindings here",
     "absorb renderer/material/product semantics",
     "make OptiX availability the public contract",
+    "claim generic cross-domain physical memory-management ownership",
     "claim RT support from repository creation or completed governance"
   ]
 }
