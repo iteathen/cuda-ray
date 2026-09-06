@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep reusable ray/geometry/traversal meaning separate from native CUDA/provider mechanisms, cross-domain memory policy and renderer/product policy.",
+  "objective": "Keep reusable ray/geometry/traversal meaning separate from native CUDA/provider mechanisms, reserved CUDA-MM cross-domain physical policy and renderer/product policy.",
   "authority": [
     "AGENTS.md",
     "docs/PROJECT_CHARTER.md",
@@ -19,11 +19,17 @@
     "status": "consumer_selection_required",
     "next_action": "Select one bounded consumer-backed ray/geometry/traversal profile, classify exact lower native/provider gaps, and accept a provider-neutral semantic specification before production implementation."
   },
+  "optional_physical_policy_owner": {
+    "repository": "iteathen/CUDA-MM",
+    "status": "reserved_architecture_owner_production_not_activated",
+    "activation": "CUDA-MM #3/#4 plus a separately accepted bounded production contract",
+    "rule": "CUDA-RAY retains ray/geometry/traversal/acceleration-structure meaning and logical lifetimes; generic placement, pooling, spill or migration policy may route to CUDA-MM only after activation."
+  },
   "do_not": [
     "implement raw OptiX/native bindings here",
     "absorb renderer/material/product semantics",
     "make OptiX availability the public contract",
-    "claim generic cross-domain physical memory-management ownership",
-    "claim RT support from repository creation or completed governance"
+    "implement generic cross-domain physical memory-management policy here; CUDA-MM is the reserved owner if activated",
+    "claim RT support from repository creation, CUDA-MM existence or completed governance"
   ]
 }
